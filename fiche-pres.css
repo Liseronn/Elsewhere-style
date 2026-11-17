@@ -1,0 +1,442 @@
+
+/* ============================================
+   ELSEWHERE — FICHE DE PRÉSENTATION
+   Six onglets + corbeaux décoratifs
+============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poiret+One&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+.ewfiche {
+  --ewf-fond: var(--colorAldou2, #737b9d);
+  --ewf-sombre: var(--colorAldou5, #414763);
+  --ewf-clair: var(--colorAldou0, #f5f3f8);
+  --ewf-accent: var(--colorAldou4, #b9b5d3);
+  --ewf-texte: #414763;
+
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 35px auto;
+  padding: 17px;
+  border-radius: 24px;
+  background: var(--ewf-fond);
+  color: var(--ewf-texte);
+  font: 12px/1.8 "Montserrat", sans-serif;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.ewfiche *,
+.ewfiche *::before,
+.ewfiche *::after {
+  box-sizing: border-box;
+}
+
+.ewfiche img {
+  max-width: 100%;
+}
+
+/* ============================================
+   BANDEAU
+============================================ */
+
+.ewfiche-bandeau {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 115px;
+  margin-bottom: 15px;
+  padding: 20px 90px 20px 30px;
+  border-radius: 50px;
+  background: var(--ewf-sombre);
+  text-align: center;
+}
+
+.ewfiche-nom {
+  color: #fff;
+  font: 400 clamp(29px, 5vw, 48px)/1.2 "Poiret One", sans-serif;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+/* CORBEAU DU BANDEAU */
+
+.ewfiche-corbeau-haut {
+  position: absolute;
+  top: -25px;
+  right: 15px;
+  width: 80px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.ewfiche-corbeau-haut img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   PARTIE SUPÉRIEURE
+============================================ */
+
+.ewfiche-haut {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.ewfiche-avatar {
+  height: 310px;
+  padding: 7px;
+  border-radius: 19px;
+  background: var(--ewf-clair);
+}
+
+.ewfiche-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+/* ============================================
+   NAVIGATION
+============================================ */
+
+.ewfiche-navigation {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.ewfiche-navigation label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 10px;
+  border-radius: 16px;
+  background: var(--ewf-sombre);
+  color: #fff;
+  font: 400 23px/1.3 "Poiret One", sans-serif;
+  text-align: center;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+
+.ewfiche-navigation label:hover {
+  background: var(--ewf-accent);
+  color: var(--ewf-sombre);
+}
+
+/* ============================================
+   SYSTÈME DES ONGLETS
+============================================ */
+
+.ewfiche > input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  pointer-events: none;
+}
+
+/* ONGLET ACTIF */
+
+.ewfiche:has(> input:nth-of-type(1):checked)
+.ewfiche-navigation label:nth-child(1),
+
+.ewfiche:has(> input:nth-of-type(2):checked)
+.ewfiche-navigation label:nth-child(2),
+
+.ewfiche:has(> input:nth-of-type(3):checked)
+.ewfiche-navigation label:nth-child(3),
+
+.ewfiche:has(> input:nth-of-type(4):checked)
+.ewfiche-navigation label:nth-child(4),
+
+.ewfiche:has(> input:nth-of-type(5):checked)
+.ewfiche-navigation label:nth-child(5),
+
+.ewfiche:has(> input:nth-of-type(6):checked)
+.ewfiche-navigation label:nth-child(6) {
+  background: var(--ewf-clair);
+  color: var(--ewf-sombre);
+}
+
+/* MASQUER LES PANNEAUX */
+
+.ewfiche-contenu > .ewfiche-panel {
+  display: none;
+}
+
+/* AFFICHER LE PANNEAU SÉLECTIONNÉ */
+
+.ewfiche:has(> input:nth-of-type(1):checked)
+.ewfiche-contenu > .ewfiche-panel:nth-child(1),
+
+.ewfiche:has(> input:nth-of-type(2):checked)
+.ewfiche-contenu > .ewfiche-panel:nth-child(2),
+
+.ewfiche:has(> input:nth-of-type(3):checked)
+.ewfiche-contenu > .ewfiche-panel:nth-child(3),
+
+.ewfiche:has(> input:nth-of-type(4):checked)
+.ewfiche-contenu > .ewfiche-panel:nth-child(4),
+
+.ewfiche:has(> input:nth-of-type(5):checked)
+.ewfiche-contenu > .ewfiche-panel:nth-child(5),
+
+.ewfiche:has(> input:nth-of-type(6):checked)
+.ewfiche-contenu > .ewfiche-panel:nth-child(6) {
+  display: block;
+}
+
+/* ============================================
+   CONTENU
+============================================ */
+
+.ewfiche-contenu {
+  min-height: 460px;
+  padding: 20px;
+  border-radius: 19px;
+  background: var(--ewf-clair);
+}
+
+.ewfiche-panel {
+  min-width: 0;
+}
+
+.ewfiche-titre {
+  margin-bottom: 17px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ewf-accent);
+  font: italic 25px/1.3 "Playfair Display", serif;
+  color: var(--ewf-sombre);
+}
+
+.ewfiche-texte {
+  min-height: 340px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--ewf-texte);
+  font: 12px/2 "Montserrat", sans-serif;
+  text-align: justify;
+  overflow-wrap: anywhere;
+}
+
+.ewfiche-texte--histoire {
+  min-height: 650px;
+}
+
+.ewfiche-texte p {
+  margin: 0 0 15px;
+}
+
+/* ============================================
+   INFORMATIONS
+============================================ */
+
+.ewfiche-infos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ewfiche-info {
+  padding: 11px 14px;
+  border-radius: 12px;
+  background: #fff;
+  overflow-wrap: anywhere;
+}
+
+.ewfiche-info b {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--ewf-fond);
+  font-size: 10px;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}
+
+/* ============================================
+   ANECDOTES
+============================================ */
+
+.ewfiche-anecdotes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.ewfiche-carte {
+  min-width: 0;
+  padding: 16px;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.ewfiche-carte h3 {
+  margin: 0 0 12px;
+  font: italic 20px "Playfair Display", serif;
+  color: var(--ewf-sombre);
+}
+
+.ewfiche-carte img {
+  width: 100%;
+  height: 110px;
+  margin-bottom: 12px;
+  border-radius: 11px;
+  object-fit: cover;
+}
+
+/* ============================================
+   DONS DIVINS
+============================================ */
+
+.ewfiche-don {
+  margin-bottom: 13px;
+  padding: 19px;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.ewfiche-don h3 {
+  margin: 0 0 12px;
+  font: italic 22px "Playfair Display", serif;
+  color: var(--ewf-sombre);
+}
+
+.ewfiche-don-texte {
+  min-height: 120px;
+  line-height: 2;
+  overflow-wrap: anywhere;
+}
+
+.ewfiche-contrainte {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(115, 123, 157, .14);
+  overflow-wrap: anywhere;
+}
+
+/* ============================================
+   HORS-JEU
+============================================ */
+
+.ewfiche-hj {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 150px;
+  gap: 15px;
+}
+
+.ewfiche-hj img {
+  width: 150px;
+  height: 150px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.ewfiche-hj-texte {
+  padding: 17px;
+  border-radius: 14px;
+  background: #fff;
+  line-height: 2;
+}
+
+/* ============================================
+   CORBEAU DU BAS
+============================================ */
+
+.ewfiche-corbeau-bas {
+  position: absolute;
+  bottom: -23px;
+  right: 20px;
+  width: 75px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.ewfiche-corbeau-bas img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================
+   CRÉDITS
+============================================ */
+
+.ewfiche-credit {
+  margin-top: 12px;
+  color: #fff;
+  font-size: 9px;
+  text-align: right;
+}
+
+.ewfiche-credit a {
+  color: #fff !important;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+@media (max-width: 650px) {
+
+  .ewfiche {
+    padding: 10px;
+  }
+
+  .ewfiche-bandeau {
+    min-height: 100px;
+    padding: 20px 60px 20px 20px;
+  }
+
+  .ewfiche-corbeau-haut {
+    width: 55px;
+    top: -15px;
+    right: 8px;
+  }
+
+  .ewfiche-haut {
+    grid-template-columns: 1fr;
+  }
+
+  .ewfiche-avatar {
+    width: 100%;
+    max-width: 260px;
+    margin: auto;
+  }
+
+  .ewfiche-navigation {
+    min-height: 220px;
+  }
+
+  .ewfiche-navigation label {
+    font-size: 19px;
+  }
+
+  .ewfiche-infos,
+  .ewfiche-anecdotes,
+  .ewfiche-hj {
+    grid-template-columns: 1fr;
+  }
+
+  .ewfiche-contenu {
+    padding: 12px;
+  }
+
+  .ewfiche-corbeau-bas {
+    width: 55px;
+    bottom: -15px;
+    right: 10px;
+  }
+}
