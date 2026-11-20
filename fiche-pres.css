@@ -1,442 +1,387 @@
 
-/* ============================================
-   ELSEWHERE — FICHE DE PRÉSENTATION
-   Six onglets + corbeaux décoratifs
-============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Montserrat:wght@400;500;600&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poiret+One&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+/* =====================================
+   ELSEWHERE - FICHE DE PRESENTATION
+   ===================================== */
 
-.ewfiche {
-  --ewf-fond: var(--colorAldou2, #737b9d);
-  --ewf-sombre: var(--colorAldou5, #414763);
-  --ewf-clair: var(--colorAldou0, #f5f3f8);
-  --ewf-accent: var(--colorAldou4, #b9b5d3);
-  --ewf-texte: #414763;
+.ew-nadira {
+  --rose: var(--colorAldou1, #efd9d0);
+  --rose-clair: #f5e7e0;
+  --beige: var(--colorAldou2, #e3ccc1);
+  --ligne: #dfc6bb;
+  --bleu: var(--colorAldou4, #91c8e8);
+  --texte: var(--colorfontAldou1, #171416);
+  --titre: var(--fontAldou2, "Poiret One", sans-serif);
+  --corps: var(--fontAldou1, "Montserrat", sans-serif);
 
   position: relative;
+  isolation: isolate;
   width: 100%;
-  max-width: 800px;
-  margin: 35px auto;
-  padding: 17px;
-  border-radius: 24px;
-  background: var(--ewf-fond);
-  color: var(--ewf-texte);
-  font: 12px/1.8 "Montserrat", sans-serif;
-  box-sizing: border-box;
-  overflow: visible;
-}
-
-.ewfiche *,
-.ewfiche *::before,
-.ewfiche *::after {
+  max-width: 715px;
+  min-height: 460px;
+  margin: 25px auto;
+  padding: 28px 18px 50px;
+  background: var(--rose);
+  color: var(--texte);
+  font: 12px/1.8 var(--corps);
   box-sizing: border-box;
 }
 
-.ewfiche img {
-  max-width: 100%;
+.ew-nadira *,
+.ew-nadira *::before,
+.ew-nadira *::after {
+  box-sizing: border-box;
 }
 
-/* ============================================
-   BANDEAU
-============================================ */
+/* STRUCTURE GENERALE */
 
-.ewfiche-bandeau {
+.ew-nadira .ew-top {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  gap: 20px;
+  align-items: start;
+}
+
+/* PORTRAIT */
+
+.ew-nadira .ew-portrait {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 115px;
-  margin-bottom: 15px;
-  padding: 20px 90px 20px 30px;
-  border-radius: 50px;
-  background: var(--ewf-sombre);
-  text-align: center;
+  z-index: 2;
+  margin-top: 8px;
+  height: 380px;
 }
 
-.ewfiche-nom {
-  color: #fff;
-  font: 400 clamp(29px, 5vw, 48px)/1.2 "Poiret One", sans-serif;
+.ew-nadira .ew-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 20px 18px -10px -12px;
+  border-radius: 15px;
+  background: var(--bleu);
+}
+
+.ew-nadira .ew-portrait img {
+  position: relative;
+  display: block;
+  width: 185px;
+  height: 365px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* PARTIE DROITE */
+
+.ew-nadira .ew-main {
+  position: relative;
+  min-width: 0;
+  padding-bottom: 25px;
+}
+
+.ew-nadira .ew-main::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 25px;
+  left: 10px;
+  right: 30px;
+  bottom: 0;
+  min-height: 320px;
+  background: var(--beige);
+  border-radius: 15px;
+}
+
+/* NOM DU PERSONNAGE */
+
+.ew-nadira .ew-name {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 7px;
+  font: 400 48px/1.1 var(--titre);
   text-transform: uppercase;
   overflow-wrap: anywhere;
 }
 
-/* CORBEAU DU BANDEAU */
+/* NAVIGATION */
 
-.ewfiche-corbeau-haut {
-  position: absolute;
-  top: -25px;
-  right: 15px;
-  width: 80px;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.ewfiche-corbeau-haut img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* ============================================
-   PARTIE SUPÉRIEURE
-============================================ */
-
-.ewfiche-haut {
-  display: grid;
-  grid-template-columns: 260px minmax(0, 1fr);
-  gap: 15px;
-  margin-bottom: 15px;
-}
-
-.ewfiche-avatar {
-  height: 310px;
-  padding: 7px;
-  border-radius: 19px;
-  background: var(--ewf-clair);
-}
-
-.ewfiche-avatar img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border-radius: 14px;
-  object-fit: cover;
-}
-
-/* ============================================
-   NAVIGATION
-============================================ */
-
-.ewfiche-navigation {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.ewfiche-navigation label {
+.ew-nadira .ew-nav {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 2px;
+  width: calc(100% + 35px);
+  margin-bottom: 25px;
+  padding: 5px;
+  background: var(--rose-clair);
+  border-radius: 15px;
+}
+
+.ew-nadira .ew-nav a {
+  flex: 1 1 auto;
   min-width: 0;
-  padding: 10px;
-  border-radius: 16px;
-  background: var(--ewf-sombre);
-  color: #fff;
-  font: 400 23px/1.3 "Poiret One", sans-serif;
+  padding: 9px 4px;
+  border-radius: 10px;
+  color: var(--texte) !important;
+  font: 600 9px/1.3 var(--corps);
   text-align: center;
-  cursor: pointer;
-  transition: background .2s, color .2s;
+  text-decoration: none !important;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background .2s;
 }
 
-.ewfiche-navigation label:hover {
-  background: var(--ewf-accent);
-  color: var(--ewf-sombre);
+.ew-nadira .ew-nav a:hover {
+  background: var(--beige);
 }
 
-/* ============================================
-   SYSTÈME DES ONGLETS
-============================================ */
+.ew-nadira .ew-star {
+  flex: 0 0 auto;
+  font-size: 10px;
+  opacity: .4;
+}
 
-.ewfiche > input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-  width: 1px;
-  height: 1px;
-  pointer-events: none;
+/* PANNEAUX */
+
+.ew-nadira .ew-panels {
+  position: relative;
+  z-index: 1;
+}
+
+.ew-nadira .ew-panel {
+  display: none;
+  position: relative;
+  min-height: 270px;
+  padding: 18px;
+  background: var(--rose-clair);
+  border-radius: 9px;
+  overflow-wrap: anywhere;
+}
+
+/* PREMIER ONGLET VISIBLE PAR DEFAUT */
+
+.ew-nadira .ew-panels > .ew-panel:first-child {
+  display: block;
+}
+
+/* CHANGEMENT D'ONGLET */
+
+.ew-nadira:has(.ew-panel:target)
+.ew-panels > .ew-panel {
+  display: none;
+}
+
+.ew-nadira .ew-panels > .ew-panel:target {
+  display: block;
 }
 
 /* ONGLET ACTIF */
 
-.ewfiche:has(> input:nth-of-type(1):checked)
-.ewfiche-navigation label:nth-child(1),
-
-.ewfiche:has(> input:nth-of-type(2):checked)
-.ewfiche-navigation label:nth-child(2),
-
-.ewfiche:has(> input:nth-of-type(3):checked)
-.ewfiche-navigation label:nth-child(3),
-
-.ewfiche:has(> input:nth-of-type(4):checked)
-.ewfiche-navigation label:nth-child(4),
-
-.ewfiche:has(> input:nth-of-type(5):checked)
-.ewfiche-navigation label:nth-child(5),
-
-.ewfiche:has(> input:nth-of-type(6):checked)
-.ewfiche-navigation label:nth-child(6) {
-  background: var(--ewf-clair);
-  color: var(--ewf-sombre);
+.ew-nadira:not(:has(.ew-panel:target))
+.ew-nav a:first-child,
+.ew-nadira:has(#ew-profil:target)
+.ew-nav a[href="#ew-profil"],
+.ew-nadira:has(#ew-caractere:target)
+.ew-nav a[href="#ew-caractere"],
+.ew-nadira:has(#ew-funfact:target)
+.ew-nav a[href="#ew-funfact"],
+.ew-nadira:has(#ew-maison:target)
+.ew-nav a[href="#ew-maison"],
+.ew-nadira:has(#ew-histoire:target)
+.ew-nav a[href="#ew-histoire"],
+.ew-nadira:has(#ew-don:target)
+.ew-nav a[href="#ew-don"],
+.ew-nadira:has(#ew-joueur:target)
+.ew-nav a[href="#ew-joueur"] {
+  background: var(--beige);
 }
 
-/* MASQUER LES PANNEAUX */
+/* PROFIL */
 
-.ewfiche-contenu > .ewfiche-panel {
-  display: none;
+.ew-nadira .ew-field {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--ligne);
 }
 
-/* AFFICHER LE PANNEAU SÉLECTIONNÉ */
-
-.ewfiche:has(> input:nth-of-type(1):checked)
-.ewfiche-contenu > .ewfiche-panel:nth-child(1),
-
-.ewfiche:has(> input:nth-of-type(2):checked)
-.ewfiche-contenu > .ewfiche-panel:nth-child(2),
-
-.ewfiche:has(> input:nth-of-type(3):checked)
-.ewfiche-contenu > .ewfiche-panel:nth-child(3),
-
-.ewfiche:has(> input:nth-of-type(4):checked)
-.ewfiche-contenu > .ewfiche-panel:nth-child(4),
-
-.ewfiche:has(> input:nth-of-type(5):checked)
-.ewfiche-contenu > .ewfiche-panel:nth-child(5),
-
-.ewfiche:has(> input:nth-of-type(6):checked)
-.ewfiche-contenu > .ewfiche-panel:nth-child(6) {
-  display: block;
+.ew-nadira .ew-field:last-child {
+  border-bottom: none;
 }
 
-/* ============================================
-   CONTENU
-============================================ */
-
-.ewfiche-contenu {
-  min-height: 460px;
-  padding: 20px;
-  border-radius: 19px;
-  background: var(--ewf-clair);
-}
-
-.ewfiche-panel {
-  min-width: 0;
-}
-
-.ewfiche-titre {
-  margin-bottom: 17px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--ewf-accent);
-  font: italic 25px/1.3 "Playfair Display", serif;
-  color: var(--ewf-sombre);
-}
-
-.ewfiche-texte {
-  min-height: 340px;
-  padding: 20px;
-  border-radius: 14px;
-  background: #fff;
-  color: var(--ewf-texte);
-  font: 12px/2 "Montserrat", sans-serif;
-  text-align: justify;
-  overflow-wrap: anywhere;
-}
-
-.ewfiche-texte--histoire {
-  min-height: 650px;
-}
-
-.ewfiche-texte p {
-  margin: 0 0 15px;
-}
-
-/* ============================================
-   INFORMATIONS
-============================================ */
-
-.ewfiche-infos {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.ewfiche-info {
-  padding: 11px 14px;
-  border-radius: 12px;
-  background: #fff;
-  overflow-wrap: anywhere;
-}
-
-.ewfiche-info b {
-  display: block;
-  margin-bottom: 3px;
-  color: var(--ewf-fond);
-  font-size: 10px;
-  letter-spacing: .7px;
+.ew-nadira .ew-field b {
+  flex: 0 0 43%;
+  font: 600 13px/1.5 var(--titre);
   text-transform: uppercase;
 }
 
-/* ============================================
-   ANECDOTES
-============================================ */
+/* CARACTERE ET HISTOIRE */
 
-.ewfiche-anecdotes {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+.ew-nadira .ew-text {
+  text-align: justify;
+  line-height: 1.9;
+  overflow-wrap: anywhere;
 }
 
-.ewfiche-carte {
-  min-width: 0;
-  padding: 16px;
-  border-radius: 14px;
-  background: #fff;
+.ew-nadira .ew-text p {
+  margin: 0 0 14px;
 }
 
-.ewfiche-carte h3 {
-  margin: 0 0 12px;
-  font: italic 20px "Playfair Display", serif;
-  color: var(--ewf-sombre);
-}
+/* FUNFACT */
 
-.ewfiche-carte img {
+.ew-nadira .ew-funfact img {
+  display: block;
   width: 100%;
-  height: 110px;
+  height: 115px;
+  margin-bottom: 18px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* MAISON ET DONS */
+
+.ew-nadira .ew-section {
+  margin-bottom: 25px;
+}
+
+.ew-nadira .ew-section:last-child {
+  margin-bottom: 0;
+}
+
+.ew-nadira .ew-section-title {
+  display: table;
+  min-width: 90px;
   margin-bottom: 12px;
-  border-radius: 11px;
-  object-fit: cover;
+  padding: 4px 15px;
+  border-radius: 15px;
+  background: var(--beige);
+  font: 400 20px/1.3 var(--titre);
+  text-transform: uppercase;
 }
 
-/* ============================================
-   DONS DIVINS
-============================================ */
-
-.ewfiche-don {
-  margin-bottom: 13px;
-  padding: 19px;
-  border-radius: 14px;
-  background: #fff;
+.ew-nadira .ew-section:first-child .ew-section-title {
+  background: var(--bleu);
 }
 
-.ewfiche-don h3 {
-  margin: 0 0 12px;
-  font: italic 22px "Playfair Display", serif;
-  color: var(--ewf-sombre);
+/* INFORMATIONS JOUEUR */
+
+.ew-nadira .ew-player-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 15px;
 }
 
-.ewfiche-don-texte {
-  min-height: 120px;
-  line-height: 2;
-  overflow-wrap: anywhere;
+.ew-nadira .ew-player-img {
+  position: relative;
+  flex: 0 0 100px;
 }
 
-.ewfiche-contrainte {
-  margin-top: 12px;
-  padding: 12px;
-  border-radius: 10px;
-  background: rgba(115, 123, 157, .14);
-  overflow-wrap: anywhere;
-}
-
-/* ============================================
-   HORS-JEU
-============================================ */
-
-.ewfiche-hj {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 150px;
-  gap: 15px;
-}
-
-.ewfiche-hj img {
-  width: 150px;
-  height: 150px;
-  border-radius: 14px;
-  object-fit: cover;
-}
-
-.ewfiche-hj-texte {
-  padding: 17px;
-  border-radius: 14px;
-  background: #fff;
-  line-height: 2;
-}
-
-/* ============================================
-   CORBEAU DU BAS
-============================================ */
-
-.ewfiche-corbeau-bas {
+.ew-nadira .ew-player-img::before {
+  content: "";
   position: absolute;
-  bottom: -23px;
-  right: 20px;
-  width: 75px;
-  z-index: 3;
+  inset: -7px 8px 7px -8px;
+  border-radius: 12px;
+  background: var(--bleu);
+}
+
+.ew-nadira .ew-player-img img {
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.ew-nadira .ew-player-name {
+  font: 400 35px/1.2 var(--titre);
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+}
+
+.ew-nadira .ew-player-field {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--ligne);
+}
+
+.ew-nadira .ew-player-field b {
+  display: block;
+  font: 400 18px/1.5 var(--titre);
+  text-transform: uppercase;
+}
+
+/* DECORATIONS MARINES */
+
+.ew-nadira .ew-fishes,
+.ew-nadira .ew-shadows {
+  position: absolute;
   pointer-events: none;
 }
 
-.ewfiche-corbeau-bas img {
+.ew-nadira .ew-fishes {
+  z-index: 3;
+  right: 5px;
+  bottom: 15px;
+  width: 115px;
+}
+
+.ew-nadira .ew-shadows {
+  z-index: 1;
+  left: 35px;
+  bottom: 0;
+  width: 170px;
+  opacity: .5;
+}
+
+.ew-nadira .ew-fishes img,
+.ew-nadira .ew-shadows img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* ============================================
-   CRÉDITS
-============================================ */
-
-.ewfiche-credit {
-  margin-top: 12px;
-  color: #fff;
-  font-size: 9px;
-  text-align: right;
-}
-
-.ewfiche-credit a {
-  color: #fff !important;
-}
-
-/* ============================================
-   RESPONSIVE
-============================================ */
+/* RESPONSIVE */
 
 @media (max-width: 650px) {
 
-  .ewfiche {
-    padding: 10px;
-  }
-
-  .ewfiche-bandeau {
-    min-height: 100px;
-    padding: 20px 60px 20px 20px;
-  }
-
-  .ewfiche-corbeau-haut {
-    width: 55px;
-    top: -15px;
-    right: 8px;
-  }
-
-  .ewfiche-haut {
+  .ew-nadira .ew-top {
     grid-template-columns: 1fr;
   }
 
-  .ewfiche-avatar {
+  .ew-nadira .ew-portrait {
+    width: 185px;
+    margin: 0 auto;
+  }
+
+  .ew-nadira .ew-name {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .ew-nadira .ew-nav {
     width: 100%;
-    max-width: 260px;
-    margin: auto;
+    flex-wrap: wrap;
   }
 
-  .ewfiche-navigation {
-    min-height: 220px;
+  .ew-nadira .ew-nav a {
+    flex: 1 1 23%;
   }
 
-  .ewfiche-navigation label {
-    font-size: 19px;
+  .ew-nadira .ew-star {
+    display: none;
   }
 
-  .ewfiche-infos,
-  .ewfiche-anecdotes,
-  .ewfiche-hj {
-    grid-template-columns: 1fr;
+  .ew-nadira .ew-main::before {
+    right: 0;
   }
 
-  .ewfiche-contenu {
-    padding: 12px;
+  .ew-nadira .ew-fishes {
+    width: 65px;
   }
 
-  .ewfiche-corbeau-bas {
-    width: 55px;
-    bottom: -15px;
-    right: 10px;
+  .ew-nadira .ew-shadows {
+    display: none;
   }
 }
