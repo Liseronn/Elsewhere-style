@@ -1,6 +1,7 @@
 
 /* =========================================
-   ELSEWHERE - FICHE DE PRESENTATION
+   ELSEWHERE — FICHE DE PRESENTATION
+   VERSION COMPACTE
    ========================================= */
 
 .fiche-pres {
@@ -14,16 +15,22 @@
   isolation: isolate;
   display: block;
   width: 100%;
-  max-width: 780px;
-  min-height: 490px;
+  max-width: 750px;
+  min-height: 470px;
   margin: 20px auto;
-  padding: 30px 25px 55px;
+  padding: 25px 30px 55px;
   box-sizing: border-box;
   background: var(--fp-rose);
   color: var(--fp-texte);
   font-family: var(--fontAldou1), Montserrat, sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.5;
+}
+
+/* NEUTRALISER LES RETOURS A LA LIGNE FORUMACTIF */
+
+.fiche-pres br {
+  display: none !important;
 }
 
 .fiche-pres *,
@@ -32,27 +39,29 @@
   box-sizing: border-box;
 }
 
-/* STRUCTURE HORIZONTALE */
+/* STRUCTURE GENERALE */
 
 .fiche-pres .fiche-pres-layout {
   display: flex !important;
-  flex-flow: row nowrap !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
   align-items: flex-start !important;
   gap: 0 !important;
-  width: 100% !important;
+  width: 100%;
+  min-height: 405px;
 }
 
-/* PORTRAIT GAUCHE */
+/* PORTRAIT */
 
 .fiche-pres .fiche-pres-portrait {
   position: relative;
   z-index: 3;
-  display: block;
-  flex: 0 0 30% !important;
-  width: 30% !important;
-  min-width: 0;
+  display: block !important;
+  flex: 0 0 29% !important;
+  width: 29% !important;
+  height: 390px;
   margin: 0 !important;
-  padding: 0 10px 14px 0;
+  padding: 0 12px 15px 0;
   background: transparent !important;
 }
 
@@ -65,91 +74,105 @@
   bottom: 0;
   left: -12px;
   background: var(--fp-bleu);
-  border-radius: 18px;
+  border-radius: 17px;
 }
 
 .fiche-pres .fiche-pres-portrait img {
   display: block !important;
   width: 100% !important;
-  height: 370px !important;
+  height: 375px !important;
   max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
   object-fit: cover;
   object-position: center top;
   border: 0;
-  border-radius: 15px;
+  border-radius: 14px;
   box-shadow: none;
 }
 
-/* PARTIE DROITE */
+/* COLONNE DROITE */
 
 .fiche-pres .fiche-pres-droite {
   position: relative;
   z-index: 2;
-  display: block !important;
+  display: flex !important;
   flex: 1 1 0 !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
   width: 0;
   min-width: 0;
-  padding: 0 0 0 15px;
+  min-height: 385px;
+  margin: 0 !important;
+  padding: 0 0 20px 12px !important;
 }
 
 .fiche-pres .fiche-pres-droite::before {
   content: "";
   position: absolute;
   z-index: -1;
-  top: 30px;
+  top: 28px;
   right: 0;
-  bottom: -25px;
+  bottom: 0;
   left: 0;
   background: var(--fp-fond);
-  border-radius: 16px;
+  border-radius: 15px;
 }
 
-/* GRAND NOM */
+/* NOM */
 
 .fiche-pres .fiche-pres-nom {
+  display: block !important;
+  flex: 0 0 auto;
   position: relative;
   z-index: 2;
-  display: block;
-  margin: -8px 0 12px;
-  padding: 0;
+  margin: -7px 0 12px !important;
+  padding: 0 !important;
   color: var(--fp-texte);
   font-family: var(--fontAldou2), "Poiret One", sans-serif;
-  font-size: clamp(30px, 5vw, 56px);
+  font-size: 48px;
   font-weight: 400;
   line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-/* BARRE D'ONGLETS */
+/* NAVIGATION */
 
 .fiche-pres .fiche-pres-nav {
   position: relative;
   z-index: 4;
   display: flex !important;
+  flex: 0 0 auto;
   flex-flow: row nowrap !important;
-  align-items: center;
-  justify-content: space-between;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 0 !important;
   width: calc(100% + 10px);
-  margin: 0 0 25px -5px;
-  padding: 5px 7px;
+  min-height: 38px;
+  margin: 0 0 18px -5px !important;
+  padding: 4px 6px !important;
   background: var(--fp-contenu);
   border-radius: 30px;
 }
 
 .fiche-pres .fiche-pres-nav a {
-  display: block !important;
-  flex: 0 1 auto;
+  display: inline-flex !important;
+  flex: 0 1 auto !important;
+  align-items: center;
+  justify-content: center;
   min-width: 0;
+  min-height: 28px;
   margin: 0 !important;
-  padding: 9px 5px;
+  padding: 5px 6px !important;
   color: var(--fp-texte) !important;
   background: transparent;
+  border: 0;
   border-radius: 12px;
   font-family: var(--fontAldou2), "Poiret One", sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.1;
   text-align: center;
   text-transform: uppercase;
   text-decoration: none !important;
@@ -160,10 +183,12 @@
   background: var(--fp-fond);
 }
 
-.fiche-pres .fiche-pres-nav .fiche-pres-sep {
+.fiche-pres .fiche-pres-sep {
   flex: 0 0 auto;
-  color: #b4a59e;
-  font-size: 12px;
+  padding: 0 2px;
+  color: #b5a69f;
+  font-size: 10px;
+  line-height: 1;
 }
 
 /* PANNEAUX */
@@ -171,33 +196,41 @@
 .fiche-pres .fiche-pres-panels {
   position: relative;
   z-index: 2;
-  min-height: 285px;
+  display: block !important;
+  flex: 0 0 auto;
+  width: 100%;
+  min-height: 255px;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 .fiche-pres .fiche-pres-panel {
   display: none !important;
   width: 100%;
-  min-height: 260px;
-  max-height: 355px;
-  padding: 20px;
-  overflow-y: auto;
+  min-height: 245px;
+  max-height: 275px;
+  margin: 0 !important;
+  padding: 18px 20px !important;
   overflow-x: hidden;
-  color: var(--fp-texte);
+  overflow-y: auto;
   background: var(--fp-contenu);
+  color: var(--fp-texte);
   border-radius: 12px;
   font-family: var(--fontAldou1), Montserrat, sans-serif;
   font-size: 11px;
-  line-height: 1.6;
+  line-height: 1.55;
+  scrollbar-width: thin;
+  scrollbar-color: #d7bfb3 transparent;
 }
 
-/* PROFIL PAR DEFAUT */
+/* PREMIER ONGLET PAR DEFAUT */
 
 .fiche-pres:not(:has(.fiche-pres-panel:target))
 #fp-profil {
   display: block !important;
 }
 
-/* ONGLET SELECTIONNE */
+/* CHANGEMENT D'ONGLET */
 
 .fiche-pres .fiche-pres-panel:target {
   display: block !important;
@@ -208,7 +241,7 @@
   display: none !important;
 }
 
-/* FOND DE L'ONGLET ACTIF */
+/* ONGLET ACTIF */
 
 .fiche-pres:not(:has(.fiche-pres-panel:target))
 .fiche-pres-nav a[href="#fp-profil"],
@@ -229,60 +262,69 @@
   background: var(--fp-fond);
 }
 
-/* CHAMPS DU PROFIL */
+/* PROFIL */
 
 .fiche-pres .fiche-pres-champ {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: baseline !important;
+  gap: 8px;
   min-height: 29px;
-  padding: 6px 0;
+  margin: 0 !important;
+  padding: 5px 0 !important;
   border-bottom: 1px solid #dfc9bd;
 }
 
 .fiche-pres .fiche-pres-champ b {
   flex: 0 0 45%;
   font-family: var(--fontAldou2), "Poiret One", sans-serif;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
 .fiche-pres .fiche-pres-champ span {
-  flex: 1;
+  flex: 1 1 auto;
   min-width: 0;
-  font-size: 11px;
+  font-size: 10px;
+  line-height: 1.3;
 }
 
-/* CARACTERE ET HISTOIRE */
+/* CARACTERE / HISTOIRE */
 
 .fiche-pres .fiche-pres-texte {
+  display: block;
+  margin: 0;
+  padding: 0;
   text-align: justify;
-  white-space: pre-line;
   line-height: 1.75;
+  white-space: pre-line;
 }
 
 /* FUNFACT */
 
 .fiche-pres .fiche-pres-gif {
-  display: block;
-  width: 100%;
-  height: 115px;
-  margin: 0 0 20px;
+  display: block !important;
+  width: 100% !important;
+  height: 110px !important;
+  margin: 0 0 16px !important;
   border-radius: 12px;
   object-fit: cover;
 }
 
-/* MAISON ET DONS */
+/* MAISON / DONS */
 
 .fiche-pres .fiche-pres-section {
-  margin-bottom: 20px;
+  display: block;
+  margin: 0 0 22px !important;
+  padding: 0 !important;
 }
 
 .fiche-pres .fiche-pres-section h3 {
   display: inline-block;
   min-width: 95px;
-  margin: 0 0 12px;
+  margin: 0 0 10px !important;
   padding: 3px 14px;
   border-radius: 20px;
   color: var(--fp-texte);
@@ -299,43 +341,47 @@
 }
 
 .fiche-pres .fiche-pres-section p {
-  margin: 0 0 10px;
+  display: block;
+  margin: 0 0 9px !important;
+  padding: 0;
   text-align: justify;
 }
 
 /* INFORMATIONS JOUEUR */
 
 .fiche-pres .fiche-pres-joueur {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 15px;
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px;
+  margin: 0 0 15px !important;
 }
 
 .fiche-pres .fiche-pres-joueur img {
   display: block;
-  width: 90px;
-  height: 90px;
+  flex: 0 0 85px;
+  width: 85px !important;
+  height: 85px !important;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: -7px -7px 0 var(--fp-bleu);
+  box-shadow: -7px -5px 0 var(--fp-bleu);
 }
 
 .fiche-pres .fiche-pres-pseudo {
   font-family: var(--fontAldou2), "Poiret One", sans-serif;
-  font-size: 35px;
+  font-size: 32px;
+  font-weight: 400;
   line-height: 1.2;
   text-transform: uppercase;
 }
 
-/* POISSONS ET DECORATIONS */
+/* POISSONS */
 
 .fiche-pres .fiche-pres-poissons {
   position: absolute;
   z-index: 5;
-  right: 4%;
-  bottom: 35px;
-  width: 105px;
+  right: 2%;
+  bottom: 18px;
+  width: 100px;
   pointer-events: none;
 }
 
@@ -345,13 +391,15 @@
   height: auto;
 }
 
+/* OMBRES SOUS LE PORTRAIT */
+
 .fiche-pres .fiche-pres-ombres {
   position: absolute;
   z-index: 1;
-  left: 8%;
-  bottom: 10px;
-  width: 185px;
-  opacity: .55;
+  left: 7%;
+  bottom: 7px;
+  width: 170px;
+  opacity: .5;
   pointer-events: none;
 }
 
@@ -361,28 +409,26 @@
   height: auto;
 }
 
-/* ADAPTATION AUX PETITS ECRANS */
+/* PETITS ECRANS */
 
-@media (max-width: 480px) {
+@media(max-width:560px) {
   .fiche-pres {
-    padding: 15px 10px 40px;
-  }
-
-  .fiche-pres .fiche-pres-layout {
-    gap: 0 !important;
+    padding: 15px 10px 35px;
   }
 
   .fiche-pres .fiche-pres-portrait {
-    flex-basis: 28% !important;
-    width: 28% !important;
+    flex-basis: 30% !important;
+    width: 30% !important;
+    height: 300px;
+    padding-right: 6px;
   }
 
   .fiche-pres .fiche-pres-portrait img {
-    height: 275px !important;
+    height: 285px !important;
   }
 
   .fiche-pres .fiche-pres-droite {
-    padding-left: 8px;
+    padding-left: 8px !important;
   }
 
   .fiche-pres .fiche-pres-nom {
@@ -391,7 +437,7 @@
 
   .fiche-pres .fiche-pres-nav {
     flex-wrap: wrap !important;
-    justify-content: center;
+    justify-content: center !important;
   }
 
   .fiche-pres .fiche-pres-nav a {
@@ -399,10 +445,10 @@
   }
 
   .fiche-pres .fiche-pres-panel {
-    padding: 12px;
+    padding: 12px !important;
   }
 
   .fiche-pres .fiche-pres-poissons {
-    width: 55px;
+    width: 65px;
   }
 }
