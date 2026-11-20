@@ -1,6 +1,6 @@
 
 /* ==========================================
-   ELSEWHERE — FICHE DE PRESENTATION V15
+   ELSEWHERE — FICHE DE PRESENTATION V10
    ========================================== */
 
 .fiche-pres {
@@ -36,9 +36,7 @@
   display: none !important;
 }
 
-/* ==========================================
-   STRUCTURE GENERALE
-   ========================================== */
+/* STRUCTURE */
 
 .fiche-pres .fiche-pres-layout {
   display: flex !important;
@@ -50,9 +48,7 @@
   gap: 0 !important;
 }
 
-/* ==========================================
-   PORTRAIT
-   ========================================== */
+/* PORTRAIT */
 
 .fiche-pres .fiche-pres-portrait {
   position: relative;
@@ -67,7 +63,7 @@
   overflow: visible !important;
 }
 
-/* CADRE BLEU */
+/* FOND BLEU */
 
 .fiche-pres .fiche-pres-portrait::before {
   content: "";
@@ -104,9 +100,7 @@
   transform-origin: center center;
 }
 
-/* ==========================================
-   PARTIE DROITE
-   ========================================== */
+/* PARTIE DROITE */
 
 .fiche-pres .fiche-pres-droite {
   position: relative;
@@ -117,36 +111,26 @@
   align-items: stretch !important;
   width: 0;
   min-width: 0;
-  min-height: 0 !important;
+  min-height: 385px;
   margin: 0 !important;
   padding: 0 0 20px 12px !important;
-  overflow: visible !important;
 }
 
-/* ==========================================
-   FOND BEIGE FONCE
-   HAUTEUR INDEPENDANTE DU PANNEAU
-   ========================================== */
+/* FOND BEIGE FONCE */
 
 .fiche-pres .fiche-pres-droite::before {
   content: "";
   position: absolute;
   z-index: -1;
   top: 28px;
-  left: 0;
   right: 0;
-  bottom: auto !important;
-
-  /* Le fond fonce s'arrete ici */
-  height: 335px !important;
-
+  bottom: 0;
+  left: 0;
   background: var(--fp-fond);
   border-radius: 15px;
 }
 
-/* ==========================================
-   NOM DU PERSONNAGE
-   ========================================== */
+/* NOM */
 
 .fiche-pres .fiche-pres-nom {
   position: relative;
@@ -164,9 +148,7 @@
   letter-spacing: 1px;
 }
 
-/* ==========================================
-   NAVIGATION
-   ========================================== */
+/* NAVIGATION */
 
 .fiche-pres .fiche-pres-nav {
   position: relative;
@@ -221,8 +203,7 @@
 }
 
 /* ==========================================
-   PANNEAU BEIGE CLAIR
-   DEPASSEMENT VERS LE BAS
+   PANNEAU CLAIR — PLUS ETROIT
    ========================================== */
 
 .fiche-pres .fiche-pres-panels {
@@ -230,54 +211,39 @@
   z-index: 2;
   display: block !important;
   flex: 0 0 auto;
-  align-self: flex-start !important;
-
-  /* Largeur inchangee */
-  width: 80% !important;
-  max-width: 430px !important;
-
-  /* Position haute inchangee */
-  margin: 6px 0 0 0 !important;
+  width: 85% !important;
+  min-height: 255px;
+  margin: 0 !important;
   padding: 0 !important;
-
-  min-height: 390px !important;
-  overflow: visible !important;
 }
 
 .fiche-pres .fiche-pres-panel {
   display: none !important;
   width: 100% !important;
-
-  /* Hauteur augmentee sans deplacer le haut */
-  height: 390px !important;
-  min-height: 390px !important;
-  max-height: 390px !important;
-
+  min-height: 245px;
+  max-height: 275px;
   margin: 0 !important;
   padding: 18px 20px !important;
   overflow-x: hidden;
   overflow-y: auto;
-
   background: var(--fp-contenu);
   color: var(--fp-texte);
   border-radius: 12px;
-
   font-family: var(--fontAldou1), Montserrat, sans-serif;
   font-size: 11px;
   line-height: 1.55;
-
   scrollbar-width: thin;
   scrollbar-color: #d7bfb3 transparent;
 }
 
-/* ==========================================
-   AFFICHAGE DES ONGLETS
-   ========================================== */
+/* PROFIL PAR DEFAUT */
 
 .fiche-pres:not(:has(.fiche-pres-panel:target))
 #fp-profil {
   display: block !important;
 }
+
+/* CHANGEMENT D'ONGLET */
 
 .fiche-pres .fiche-pres-panel:target {
   display: block !important;
@@ -288,9 +254,7 @@
   display: none !important;
 }
 
-/* ==========================================
-   ONGLET ACTIF
-   ========================================== */
+/* ONGLET ACTIF */
 
 .fiche-pres:not(:has(.fiche-pres-panel:target))
 .fiche-pres-nav a[href="#fp-profil"],
@@ -311,9 +275,7 @@
   background: var(--fp-fond);
 }
 
-/* ==========================================
-   CHAMPS DU PROFIL
-   ========================================== */
+/* INFORMATIONS PROFIL */
 
 .fiche-pres .fiche-pres-champ {
   display: flex !important;
@@ -342,9 +304,7 @@
   line-height: 1.3;
 }
 
-/* ==========================================
-   CARACTERE ET HISTOIRE
-   ========================================== */
+/* CARACTERE ET HISTOIRE */
 
 .fiche-pres .fiche-pres-texte {
   display: block;
@@ -355,9 +315,7 @@
   white-space: pre-line;
 }
 
-/* ==========================================
-   FUNFACT
-   ========================================== */
+/* FUNFACT */
 
 .fiche-pres .fiche-pres-gif {
   display: block !important;
@@ -368,9 +326,7 @@
   object-fit: cover;
 }
 
-/* ==========================================
-   MAISON ET DONS
-   ========================================== */
+/* MAISON ET DONS */
 
 .fiche-pres .fiche-pres-section {
   display: block;
@@ -404,9 +360,7 @@
   text-align: justify;
 }
 
-/* ==========================================
-   INFORMATIONS JOUEUR
-   ========================================== */
+/* INFORMATIONS JOUEUR */
 
 .fiche-pres .fiche-pres-joueur {
   display: flex !important;
@@ -433,9 +387,7 @@
   text-transform: uppercase;
 }
 
-/* ==========================================
-   POISSONS BLEUS
-   ========================================== */
+/* POISSONS */
 
 .fiche-pres .fiche-pres-poissons {
   position: absolute;
@@ -452,9 +404,7 @@
   height: auto;
 }
 
-/* ==========================================
-   OMBRES SOUS LE PORTRAIT
-   ========================================== */
+/* OMBRES */
 
 .fiche-pres .fiche-pres-ombres {
   position: absolute;
@@ -472,9 +422,7 @@
   height: auto;
 }
 
-/* ==========================================
-   VERSION MOBILE
-   ========================================== */
+/* MOBILE */
 
 @media (max-width: 560px) {
 
@@ -509,10 +457,6 @@
     padding-left: 8px !important;
   }
 
-  .fiche-pres .fiche-pres-droite::before {
-    height: 290px !important;
-  }
-
   .fiche-pres .fiche-pres-nom {
     font-size: 28px;
   }
@@ -528,20 +472,13 @@
 
   .fiche-pres .fiche-pres-panels {
     width: 90% !important;
-    max-width: none !important;
-    margin-top: 6px !important;
-    min-height: 320px !important;
   }
 
   .fiche-pres .fiche-pres-panel {
-    height: 320px !important;
-    min-height: 320px !important;
-    max-height: 320px !important;
     padding: 12px !important;
   }
 
   .fiche-pres .fiche-pres-poissons {
     width: 65px;
-    bottom: 18px;
   }
 }
