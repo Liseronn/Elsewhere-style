@@ -1,6 +1,6 @@
 
 /* ==========================================
-   ELSEWHERE — FICHE DE PRESENTATION V10
+   ELSEWHERE — FICHE DE PRESENTATION V11
    ========================================== */
 
 .fiche-pres {
@@ -203,7 +203,7 @@
 }
 
 /* ==========================================
-   PANNEAU CLAIR — PLUS ETROIT
+   PANNEAU CLAIR — POSITION MAQUETTE
    ========================================== */
 
 .fiche-pres .fiche-pres-panels {
@@ -211,9 +211,13 @@
   z-index: 2;
   display: block !important;
   flex: 0 0 auto;
-  width: 85% !important;
+  align-self: flex-start !important;
+
+  width: 80% !important;
+  max-width: 430px !important;
   min-height: 255px;
-  margin: 0 !important;
+
+  margin: 6px 0 0 0 !important;
   padding: 0 !important;
 }
 
@@ -275,7 +279,7 @@
   background: var(--fp-fond);
 }
 
-/* INFORMATIONS PROFIL */
+/* PROFIL */
 
 .fiche-pres .fiche-pres-champ {
   display: flex !important;
@@ -472,6 +476,7 @@
 
   .fiche-pres .fiche-pres-panels {
     width: 90% !important;
+    max-width: none !important;
   }
 
   .fiche-pres .fiche-pres-panel {
