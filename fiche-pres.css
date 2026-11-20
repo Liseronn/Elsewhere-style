@@ -483,3 +483,19 @@
     width: 65px;
   }
 }
+/* Fond beige foncé /
+.fiche-pres .fiche-pres-droite::before {
+  left: -65px;
+  right: 55px;
+  bottom: 45px;
+}
+
+/ Fond beige clair */
+.fiche-pres .fiche-pres-panels {
+  width: calc(85% + 65px) !important;
+  margin-left: -65px !important;
+}
+
+.fiche-pres .fiche-pres-panel {
+  min-height: 275px;
+}
