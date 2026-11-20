@@ -1,6 +1,6 @@
 
 /* ==========================================
-   ELSEWHERE — FICHE DE PRESENTATION V14
+   ELSEWHERE — FICHE DE PRESENTATION V15
    ========================================== */
 
 .fiche-pres {
@@ -105,7 +105,7 @@
 }
 
 /* ==========================================
-   COLONNE DROITE
+   PARTIE DROITE
    ========================================== */
 
 .fiche-pres .fiche-pres-droite {
@@ -117,10 +117,7 @@
   align-items: stretch !important;
   width: 0;
   min-width: 0;
-
-  /* Hauteur independante du fond */
   min-height: 0 !important;
-
   margin: 0 !important;
   padding: 0 0 20px 12px !important;
   overflow: visible !important;
@@ -128,20 +125,19 @@
 
 /* ==========================================
    FOND BEIGE FONCE
-   HAUTEUR FIXE
+   HAUTEUR INDEPENDANTE DU PANNEAU
    ========================================== */
 
 .fiche-pres .fiche-pres-droite::before {
   content: "";
   position: absolute;
   z-index: -1;
-
   top: 28px;
   left: 0;
   right: 0;
-
-  /* Ne depend plus de la hauteur du contenu */
   bottom: auto !important;
+
+  /* Le fond fonce s'arrete ici */
   height: 335px !important;
 
   background: var(--fp-fond);
@@ -226,7 +222,7 @@
 
 /* ==========================================
    PANNEAU BEIGE CLAIR
-   PLUS HAUT QUE LE FOND FONCE
+   DEPASSEMENT VERS LE BAS
    ========================================== */
 
 .fiche-pres .fiche-pres-panels {
@@ -236,15 +232,15 @@
   flex: 0 0 auto;
   align-self: flex-start !important;
 
-  /* Largeur conservee */
+  /* Largeur inchangee */
   width: 80% !important;
   max-width: 430px !important;
 
-  /* Position haute conservee */
+  /* Position haute inchangee */
   margin: 6px 0 0 0 !important;
   padding: 0 !important;
 
-  min-height: 330px;
+  min-height: 390px !important;
   overflow: visible !important;
 }
 
@@ -252,10 +248,10 @@
   display: none !important;
   width: 100% !important;
 
-  /* Le panneau peut depasser du fond */
-  height: 330px !important;
-  min-height: 330px !important;
-  max-height: 330px !important;
+  /* Hauteur augmentee sans deplacer le haut */
+  height: 390px !important;
+  min-height: 390px !important;
+  max-height: 390px !important;
 
   margin: 0 !important;
   padding: 18px 20px !important;
@@ -292,7 +288,9 @@
   display: none !important;
 }
 
-/* ONGLET ACTIF */
+/* ==========================================
+   ONGLET ACTIF
+   ========================================== */
 
 .fiche-pres:not(:has(.fiche-pres-panel:target))
 .fiche-pres-nav a[href="#fp-profil"],
@@ -437,16 +435,13 @@
 
 /* ==========================================
    POISSONS BLEUS
-   POSITION ABAISSEE
    ========================================== */
 
 .fiche-pres .fiche-pres-poissons {
   position: absolute;
   z-index: 5;
-
   right: 2%;
   bottom: 18px;
-
   width: 100px;
   pointer-events: none;
 }
@@ -478,7 +473,7 @@
 }
 
 /* ==========================================
-   RESPONSIVE
+   VERSION MOBILE
    ========================================== */
 
 @media (max-width: 560px) {
@@ -535,13 +530,13 @@
     width: 90% !important;
     max-width: none !important;
     margin-top: 6px !important;
-    min-height: 280px;
+    min-height: 320px !important;
   }
 
   .fiche-pres .fiche-pres-panel {
-    height: 280px !important;
-    min-height: 280px !important;
-    max-height: 280px !important;
+    height: 320px !important;
+    min-height: 320px !important;
+    max-height: 320px !important;
     padding: 12px !important;
   }
 
