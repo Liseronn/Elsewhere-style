@@ -1,6 +1,7 @@
 
 /* ==========================================
    ELSEWHERE — FICHE DE PRESENTATION V10
+   Poissons remontes + separateurs en points
    ========================================== */
 
 .fiche-pres {
@@ -194,6 +195,8 @@
   background: var(--fp-fond);
 }
 
+/* SEPARATEURS EN POINTS */
+
 .fiche-pres .fiche-pres-sep {
   flex: 0 0 auto;
   padding: 0 2px;
@@ -202,9 +205,7 @@
   line-height: 1;
 }
 
-/* ==========================================
-   PANNEAU CLAIR — PLUS ETROIT
-   ========================================== */
+/* PANNEAU CLAIR — V10 */
 
 .fiche-pres .fiche-pres-panels {
   position: relative;
@@ -387,13 +388,13 @@
   text-transform: uppercase;
 }
 
-/* POISSONS */
+/* POISSONS — REMONTES DE 12 PX */
 
 .fiche-pres .fiche-pres-poissons {
   position: absolute;
   z-index: 5;
   right: 2%;
-  bottom: 18px;
+  bottom: 30px;
   width: 100px;
   pointer-events: none;
 }
