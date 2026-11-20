@@ -1,303 +1,306 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Montserrat:wght@400;500;600&display=swap');
+/* FICHE DE PRESENTATION - ELSEWHERE */
 
-/* FICHE ELSEWHERE */
-
-.ew-nadira {
-  --rose: var(--colorAldou1, #f4e6d4);
-  --clair: var(--colorAldou0, #fff);
-  --beige: var(--colorAldou2, #eed2aa);
-  --texte: var(--colorfontAldou1, #2b2b2b);
-  --bleu: #91c8e8;
+.fiche-pres {
+  --fp-fond: var(--colorAldou1, #f4e6d4);
+  --fp-cadre: var(--colorAldou2, #eed2aa);
+  --fp-clair: var(--colorAldou0, #fff);
+  --fp-texte: var(--colorfontAldou1, #2b2b2b);
+  --fp-bleu: #91c8e8;
   position: relative;
   isolation: isolate;
   width: 100%;
-  max-width: 850px;
-  min-height: 530px;
+  max-width: 715px;
   margin: 25px auto;
-  padding: 30px 25px 65px;
-  background: var(--rose);
-  color: var(--texte);
-  font: 12px/1.6 var(--fontAldou1, Montserrat), sans-serif;
+  padding: 28px 18px 35px;
+  box-sizing: border-box;
+  background: var(--fp-fond);
+  color: var(--fp-texte);
+  font: 12px/1.8 var(--fontAldou1, Montserrat), sans-serif;
+}
+
+.fiche-pres *,
+.fiche-pres *::before,
+.fiche-pres *::after {
   box-sizing: border-box;
 }
 
-.ew-nadira * {
-  box-sizing: border-box;
-}
-
-.ew-nadira .ew-top {
+.fiche-pres .fiche-pres-top {
   display: grid;
-  grid-template-columns: 235px minmax(0, 1fr);
-  gap: 0;
+  grid-template-columns: 200px minmax(0,1fr);
+  gap: 20px;
   align-items: start;
 }
 
-.ew-nadira .ew-portrait {
+/* PORTRAIT */
+
+.fiche-pres .fiche-pres-portrait {
   position: relative;
-  z-index: 3;
-  width: 225px;
   margin-top: 8px;
+  height: 380px;
 }
 
-.ew-nadira .ew-portrait:before {
+.fiche-pres .fiche-pres-portrait::before {
   content: "";
   position: absolute;
-  top: 24px;
-  left: -13px;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  background: var(--bleu);
+  inset: 20px 18px -10px -12px;
+  border-radius: 15px;
+  background: var(--fp-bleu);
 }
 
-.ew-nadira .ew-portrait img {
+.fiche-pres .fiche-pres-portrait img {
   position: relative;
   display: block;
-  width: 215px;
-  height: 430px;
+  width: 185px;
+  height: 365px;
   object-fit: cover;
-  border-radius: 17px;
+  border-radius: 14px;
 }
 
-.ew-nadira .ew-main {
+/* TITRE ET FOND */
+
+.fiche-pres .fiche-pres-main {
   position: relative;
   min-width: 0;
-  padding-bottom: 35px;
 }
 
-.ew-nadira .ew-main:before {
+.fiche-pres .fiche-pres-main::before {
   content: "";
   position: absolute;
-  top: 32px;
-  left: -5px;
-  right: 5px;
-  bottom: 0;
-  border-radius: 16px;
-  background: var(--beige);
-  opacity: .65;
+  z-index: 0;
+  top: 25px;
+  left: 10px;
+  right: 10px;
+  bottom: -20px;
+  background: var(--fp-cadre);
+  border-radius: 15px;
 }
 
-.ew-nadira .ew-name {
+.fiche-pres .fiche-pres-nom {
   position: relative;
-  z-index: 2;
-  margin: 0 0 12px 5px;
-  color: var(--texte);
-  font: 400 49px/1.1 var(--fontAldou2, "Poiret One"), sans-serif;
+  z-index: 1;
+  margin: 0 0 8px;
+  color: var(--fp-texte);
+  font: 400 46px/1.1 var(--fontAldou2, "Poiret One"), sans-serif;
   text-transform: uppercase;
   overflow-wrap: anywhere;
 }
 
-.ew-nadira .ew-nav {
+/* ONGLETS */
+
+.fiche-pres .fiche-pres-nav {
   position: relative;
-  z-index: 4;
+  z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: calc(100% + 18px);
-  min-height: 45px;
-  margin: 0 0 28px -8px;
+  flex-wrap: nowrap;
+  gap: 2px;
+  width: 100%;
+  margin-bottom: 20px;
   padding: 5px;
-  border-radius: 20px;
-  background: var(--clair);
+  border-radius: 15px;
+  background: var(--fp-clair);
 }
 
-.ew-nadira .ew-nav a {
-  flex: 1;
-  display: block;
+.fiche-pres .fiche-pres-nav a {
+  flex: 1 1 auto;
   min-width: 0;
   padding: 9px 3px;
-  border-radius: 12px;
-  color: var(--texte) !important;
-  font: 400 13px/1.2 var(--fontAldou2, "Poiret One"), sans-serif;
+  border-radius: 10px;
+  color: var(--fp-texte) !important;
+  font: 600 9px/1.3 var(--fontAldou1, Montserrat), sans-serif;
   text-align: center;
   text-decoration: none !important;
-  text-transform: uppercase;
   white-space: nowrap;
 }
 
-.ew-nadira .ew-nav a:hover {
-  background: var(--beige);
+.fiche-pres .fiche-pres-nav a:hover {
+  background: var(--fp-cadre);
 }
 
-.ew-nadira .ew-nav a:not(:last-child):after {
-  content: "✦";
-  position: absolute;
-  margin-left: 8px;
-  color: #a99b94;
-  font: 10px Montserrat, sans-serif;
-}
+/* CONTENU DES ONGLETS */
 
-.ew-nadira .ew-panels {
+.fiche-pres .fiche-pres-panels {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
-.ew-nadira .ew-panel {
+.fiche-pres .fiche-pres-panel {
   display: none;
   min-height: 275px;
-  padding: 20px;
-  border-radius: 12px;
-  background: var(--clair);
-  color: var(--texte);
+  padding: 20px 18px;
+  border-radius: 10px;
+  background: var(--fp-clair);
+  color: var(--fp-texte);
   overflow-wrap: anywhere;
 }
 
-.ew-nadira .ew-panel:first-child {
+.fiche-pres .fiche-pres-panel:first-child {
   display: block;
 }
 
-.ew-nadira:has(.ew-panel:target) .ew-panel {
+.fiche-pres:has(.fiche-pres-panel:target)
+.fiche-pres-panel {
   display: none;
 }
 
-.ew-nadira .ew-panel:target {
+.fiche-pres .fiche-pres-panel:target {
   display: block;
 }
 
-.ew-nadira:not(:has(.ew-panel:target)) .ew-nav a:first-child,
-.ew-nadira:has(#ew-profil:target) a[href="#ew-profil"],
-.ew-nadira:has(#ew-caractere:target) a[href="#ew-caractere"],
-.ew-nadira:has(#ew-funfact:target) a[href="#ew-funfact"],
-.ew-nadira:has(#ew-maison:target) a[href="#ew-maison"],
-.ew-nadira:has(#ew-histoire:target) a[href="#ew-histoire"],
-.ew-nadira:has(#ew-don:target) a[href="#ew-don"],
-.ew-nadira:has(#ew-joueur:target) a[href="#ew-joueur"] {
-  background: var(--beige);
+/* ONGLET ACTIF */
+
+.fiche-pres:not(:has(.fiche-pres-panel:target))
+.fiche-pres-nav a:first-child,
+.fiche-pres:has(#fp-profil:target) a[href="#fp-profil"],
+.fiche-pres:has(#fp-caractere:target) a[href="#fp-caractere"],
+.fiche-pres:has(#fp-funfact:target) a[href="#fp-funfact"],
+.fiche-pres:has(#fp-maison:target) a[href="#fp-maison"],
+.fiche-pres:has(#fp-histoire:target) a[href="#fp-histoire"],
+.fiche-pres:has(#fp-dons:target) a[href="#fp-dons"],
+.fiche-pres:has(#fp-joueur:target) a[href="#fp-joueur"] {
+  background: var(--fp-cadre);
 }
 
-.ew-nadira .ew-field {
-  padding: 8px 0;
-  border-bottom: 1px solid var(--beige);
+/* PROFIL */
+
+.fiche-pres .fiche-pres-champ {
+  display: flex;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--fp-cadre);
 }
 
-.ew-nadira .ew-field b {
-  display: inline-block;
-  min-width: 45%;
-  font: 400 16px var(--fontAldou2, "Poiret One"), sans-serif;
+.fiche-pres .fiche-pres-champ b {
+  flex: 0 0 43%;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
-.ew-nadira .ew-text {
+/* CARACTERE ET HISTOIRE */
+
+.fiche-pres .fiche-pres-texte {
   text-align: justify;
-  line-height: 1.8;
-  white-space: normal;
+  line-height: 2;
+  white-space: pre-line;
 }
 
-.ew-nadira .ew-banner {
+/* FUNFACT */
+
+.fiche-pres .fiche-pres-gif {
   display: block;
   width: 100%;
-  height: 115px;
-  margin-bottom: 18px;
-  border-radius: 15px;
+  max-height: 145px;
+  margin-bottom: 15px;
+  border-radius: 12px;
   object-fit: cover;
 }
 
-.ew-nadira .ew-section {
-  margin-bottom: 20px;
+/* MAISON ET DONS */
+
+.fiche-pres .fiche-pres-section {
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--fp-cadre);
 }
 
-.ew-nadira .ew-section h3 {
-  display: block;
-  width: fit-content;
-  min-width: 90px;
-  margin: 0 0 12px;
+.fiche-pres .fiche-pres-section h3 {
+  display: inline-block;
+  margin: 0 0 10px;
   padding: 3px 15px;
-  border-radius: 20px;
-  background: var(--beige);
-  color: var(--texte);
-  font: 400 20px var(--fontAldou2, "Poiret One"), sans-serif;
+  border-radius: 15px;
+  background: var(--fp-cadre);
+  color: var(--fp-texte);
+  font: 400 21px/1.3 var(--fontAldou2, "Poiret One"), sans-serif;
   text-transform: uppercase;
 }
 
-.ew-nadira .ew-section:first-child h3 {
-  background: var(--bleu);
+.fiche-pres .fiche-pres-section:first-child h3 {
+  background: var(--fp-bleu);
 }
 
-.ew-nadira .ew-player {
+.fiche-pres .fiche-pres-section p {
+  margin: 0 0 8px;
+  line-height: 1.9;
+}
+
+/* JOUEUR */
+
+.fiche-pres .fiche-pres-joueur {
   display: flex;
   align-items: center;
-  gap: 18px;
-  margin-bottom: 15px;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-.ew-nadira .ew-player img {
+.fiche-pres .fiche-pres-joueur img {
   width: 95px;
   height: 95px;
   border-radius: 12px;
   object-fit: cover;
-  box-shadow: -9px -5px 0 var(--bleu);
+  box-shadow: -7px 7px 0 var(--fp-bleu);
 }
 
-.ew-nadira .ew-player strong {
-  font: 400 35px var(--fontAldou2, "Poiret One"), sans-serif;
+.fiche-pres .fiche-pres-pseudo {
+  font: 400 30px/1.2 var(--fontAldou2, "Poiret One"), sans-serif;
   text-transform: uppercase;
 }
 
-.ew-nadira .ew-fishes,
-.ew-nadira .ew-birds {
+/* DECORATIONS */
+
+.fiche-pres .fiche-pres-deco {
   position: absolute;
-  z-index: 5;
+  right: 5px;
+  bottom: 0;
+  width: 110px;
   pointer-events: none;
 }
 
-.ew-nadira .ew-fishes {
-  right: 0;
-  bottom: 35px;
-  width: 110px;
-}
-
-.ew-nadira .ew-birds {
-  left: 55px;
-  bottom: 5px;
-  width: 170px;
-  opacity: .55;
-}
-
-.ew-nadira .ew-fishes img,
-.ew-nadira .ew-birds img {
+.fiche-pres .fiche-pres-deco img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.ew-nadira .ew-credit {
-  margin-top: 15px;
+.fiche-pres .fiche-pres-credit {
+  position: relative;
+  margin-top: 18px;
   text-align: right;
   font-size: 9px;
   opacity: .65;
 }
 
+/* MOBILE */
+
 @media(max-width:650px) {
-  .ew-nadira {
-    padding: 20px 12px 50px;
-  }
-  .ew-nadira .ew-top {
+  .fiche-pres .fiche-pres-top {
     grid-template-columns: 1fr;
   }
-  .ew-nadira .ew-portrait {
-    margin: 0 auto 30px;
+
+  .fiche-pres .fiche-pres-portrait {
+    width: 185px;
+    margin: 0 auto 15px;
   }
-  .ew-nadira .ew-name {
+
+  .fiche-pres .fiche-pres-nom {
     font-size: 36px;
     text-align: center;
   }
-  .ew-nadira .ew-nav {
-    width: 100%;
-    margin-left: 0;
+
+  .fiche-pres .fiche-pres-nav {
     flex-wrap: wrap;
   }
-  .ew-nadira .ew-nav a {
+
+  .fiche-pres .fiche-pres-nav a {
     flex: 1 1 25%;
   }
-  .ew-nadira .ew-nav a:after {
-    display: none;
-  }
-  .ew-nadira .ew-main:before {
+
+  .fiche-pres .fiche-pres-main::before {
     left: 0;
     right: 0;
   }
-  .ew-nadira .ew-fishes {
+
+  .fiche-pres .fiche-pres-deco {
     width: 65px;
   }
 }
